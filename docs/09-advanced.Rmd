@@ -232,8 +232,11 @@ If your website does not contain any Rmd files, it is very straightforward to re
 ```
 
 As mentioned in Section \@ref(global-options), the default value of the `method` argument is determined by the global option `blogdown.method`, and you can set this option in `.Rprofile`.
+This method takes presedence over any output-format or options specified in the yaml of the content files.
 
 For `method = 'html'`, `build_site()` renders `*.Rmd` to `*.html`, and `*.Rmarkdown` to `*.markdown`, and keeps the `*.html`/`*.markdown` output files under the same directory as `*.Rmd`/`*.Rmarkdown` files.
+
+For `method = 'markdown'`, `build_site()` renders `*.Rmd` to `*.md` and keeps the `*.md` output files under the same directory as `*.Rmd` files.
 
 An Rmd file may generate two directories for figures (`*_files/`) and cache (`*_cache/`), respectively, if you have plot output or HTML widgets [@R-htmlwidgets] in your R code chunks, or enabled the chunk option `cache = TRUE` for caching. In the figure directory, there will be a subdirectory `figure-html/` that contains your plot output files, and possibly other subdirectories containing HTML dependencies from HTML widgets (e.g., `jquery/`). The figure directory is moved to `/static/`, and the cache directory is moved to `/blogdown/`.
 
